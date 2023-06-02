@@ -15,10 +15,21 @@ public class BookService {
        List<Book> newBooks= bookRepository.findNewBooks(days);
        List<Book> books = newBooks.stream().map(book -> {
            int price = book.getPrice();
-           price = price - (price * discountRate / 100);
+           price = price - (price*discountRate / 100);
            book.setPrice(price);
            return book;
        }).collect(Collectors.toList());
+       /*for (Book book:newBooks){
+           int price = book.getPrice();
+           int newPrice = price - (discountRate * price / 100);
+           book.setPrice(newPrice);
+       }*/
+
+      /* newBooks.forEach(book -> {
+           int price = book.getPrice();
+           int newPrice = price - (discountRate*price / 100);
+           book.setPrice(newPrice);
+       });*/
        return books;
    }
 
