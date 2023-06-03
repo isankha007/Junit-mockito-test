@@ -11,7 +11,7 @@ public class FakeBookRepository implements BookRepository {
 
     Map<String, Book> bookStore=new HashMap<>();
     @Override
-    public void save(Book book) {
+    public void save( Book book) {
         bookStore.put(book.getBookId(),book);
     }
 
